@@ -67,3 +67,4 @@ def deletar_aluno(id_aluno):
         finally:
             cursor.close()
             conexao.close()
+            
