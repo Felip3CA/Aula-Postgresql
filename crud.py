@@ -1,5 +1,7 @@
 from db import conectar 
 
+    #---------------------- CRIAR   -----------------------------
+
 def criar_aluno(nome, idade):
     conexao, cursor = conectar()
     if conexao: 
@@ -16,9 +18,9 @@ def criar_aluno(nome, idade):
             cursor.close()
             conexao.close()
 
-    #----------------------    -----------------------------
+    #---------------------- LISTAR   -----------------------------
 
-def listar_aluno():
+def listar_alunos():
     conexao, cursor = conectar()
     if conexao: 
         try:
@@ -34,3 +36,18 @@ def listar_aluno():
             cursor.close()
             conexao.close()
 
+   #----------------------  ATUALIZAR  -----------------------------
+
+def atualizar_alunos(id_aluno, nova_idade):
+    conexao, cursor = conectar()
+    if conexao:
+        try:
+            cursor.execute(
+                "UPDATE alunos SET idade = %s WHERE id = %s",
+                (nova_idade, id_aluno)
+            )
+        except Exception as erro:
+            print(f"Erro ao atualizar aluno {erro}")
+        finally:
+            cursor.close()
+            conexao.close()
