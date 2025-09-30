@@ -3,8 +3,11 @@ from dotenv import load_dotenv
 import os  
 
 #Carregar variáveis do .env
+
+load_dotenv()
+
 params = {
-  "db_name": os.getenv("DB_NAME"),
+  "dbname": os.getenv("DB_NAME"),
   "user": os.getenv("DB_USER"),
   "password": os.getenv("DB_PASSWORD"),
   "host": os.getenv("DB_HOST"),
@@ -20,4 +23,6 @@ def conectar():
     
     except Exception as erro:
      print(f"Erro de conexão {erro}")
-     return None, None
+     return None, None  
+    
+
